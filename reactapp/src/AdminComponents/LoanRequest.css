@@ -1,0 +1,94 @@
+/* LoanRequest.css */
+
+/* Container for the filter dropdown */
+.filter-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Home.css */
+#searchBox{
+  float: left;
+
+}
+#filter{
+  width:400px;
+  float: right;
+}
+/* Filter dropdown button style */
+.filter-button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.filter-button:hover {
+  background-color: #2980b9;
+}
+
+/* Filter dropdown panel */
+.filter-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: none;
+  width: 200px;
+  z-index: 1;
+}
+
+/* Filter dropdown options */
+.filter-options {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.filter-option {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.filter-option:hover {
+  background-color: #f5f5f5;
+}
+
+/* Style for the filter select element */
+.filter-select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style for the table and other elements */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+table, th, td {
+  border: 1px solid #ccc;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+/* Add more styles for other elements in your component */
+#backButton{
+left: 0; 
+display: block;
+}

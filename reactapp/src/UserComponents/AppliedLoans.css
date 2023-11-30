@@ -1,0 +1,75 @@
+/* CSS for Delete Popup Overlay */
+
+#submissionDate{
+float: left;
+}
+th, td {
+    padding: 20px;
+    text-align: left;
+  }
+  
+  
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+    z-index: 1;
+}
+.blur{    /* Your existing styles for the content here */
+    filter: blur(2px);
+    pointer-events: none;
+
+     /* Apply a blur filter to the content */
+}
+/* CSS for Delete Popup */
+.delete-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* backgroundcolor: #f2f2f2; Light gray background color */
+    /* border: 1px solid black; */
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    text-align: center;
+    z-index: 2; /* Above the overlay */
+}
+
+.delete-popup p {
+    margin: 0;
+    padding: 40px;
+}
+
+.delete-popup button {
+    /* background-color: #ff6961; Red color, you can choose your own */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.delete-popup button:hover {
+    background-color: #e60000; /* A slightly darker shade of red */
+}
+
+.delete-popup button:last-child {
+    background-color: #ccc; /* Gray color for Cancel button */
+}
+
+.delete-popup button:last-child:hover {
+    background-color: #999; /* A slightly darker shade of gray for Cancel button on hover */
+}
+.no-records-cell {
+    text-align: center !important;
+    background-color: #f0f0f0; /* Set the background color to your preferred color */
+    padding: 200px; /* Add some padding for spacing */
+    color: #333; /* Set the text color */
+    font-size: 18px; /* Set the font size */
+    font-weight: bold; /* Make the text bold */
+  }

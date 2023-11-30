@@ -1,0 +1,165 @@
+/* Home.css */
+#searchBox{
+  width:300px;
+  float: left;
+}
+/* Styles for the container div */
+#loanHomeBody {
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+/* Styles for the h1 header */
+h1 {
+  font-size: 24px;
+  color: #333;
+}
+
+/* Styles for the buttons */
+button {
+  padding: 10px 15px;
+  margin: 10px 5px;
+  border: none;
+  background-color: #007BFF;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Styles for the search box and sort buttons */
+#search-sort-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+
+.interestRate{
+  float: left;
+}
+#sort-buttons button {
+  float: left;
+  background-color: #333;
+  color: #fff;
+  width: 10px;
+}
+
+/* Styles for the table */
+.loan-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+
+.loan-table th, .loan-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+.sortButtons{
+  background-color: white ;
+  padding: 3px;
+  float: left;
+  margin-top: 1px;
+}
+#interestrate{
+  float: left;
+}
+
+/* Styles for the pagination buttons */
+#pagination-container {
+  width: 400px;
+  align-items: center;
+  margin-left: 380px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* Styles for the delete confirmation popup */
+.delete-popup {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+.delete-popup p {
+  margin: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.delete-popup button {
+  padding: 10px 15px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+  z-index: 1;
+}
+.blur{    /* Your existing styles for the content here */
+  filter: blur(2px);
+  pointer-events: none;
+   /* Apply a blur filter to the content */
+}
+/* CSS for Delete Popup */
+.delete-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* backgroundcolor: #f2f2f2; Light gray background color */
+  /* border: 1px solid black; */
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  text-align: center;
+  z-index: 2; /* Above the overlay */
+}
+
+.delete-popup p {
+  margin: 0;
+  padding: 40px;
+}
+
+.delete-popup button {
+  /* background-color: #ff6961; Red color, you can choose your own */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.delete-popup button:hover {
+  background-color: #e60000; /* A slightly darker shade of red */
+}
+
+.delete-popup button:last-child {
+  background-color: #ccc; /* Gray color for Cancel button */
+}
+
+.delete-popup button:last-child:hover {
+  background-color: #999; /* A slightly darker shade of gray for Cancel button on hover */
+}
+
+.no-records-cell {
+  text-align: center !important;
+  background-color: #f0f0f0; /* Set the background color to your preferred color */
+  padding: 200px; /* Add some padding for spacing */
+  color: #333; /* Set the text color */
+  font-size: 18px; /* Set the font size */
+  font-weight: bold; /* Make the text bold */
+}

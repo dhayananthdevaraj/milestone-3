@@ -1,0 +1,210 @@
+.signup-form-container {
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.error {
+  color: red;
+}
+/* ... Previous CSS styles ... */
+
+.submit-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.login-button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.2s;
+}
+
+.login-button:hover {
+  background-color: #555;
+}
+
+
+.login-box {
+  max-width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.error {
+  color: red;
+}
+
+.login-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin:10px 0;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+.signup-link {
+  margin-top: 10px;
+}
+
+.signup-link a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+.login-link a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+.login-link a:hover {
+  text-decoration: underline;
+}
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+.sortButtons:hover{
+  cursor: pointer;
+
+}
+#logoutbutton{
+  float:right;
+  margin:20px
+}
+
+#req_button{
+  float:right;
+  margin :5px 35px
+}
+#new_button{
+  float:right;
+  margin :5px
+}
+
+#appliedloanbutton{
+  margin :5px;
+
+}
+
+
+/* LoanApplicationForm.css */
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f7f7f7;
+}
+
+h2 {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.error {
+  color: #ff0000;
+  font-size: 12px;
+}
+
+.submit-button {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+td,tr{
+  padding: 10px !important;
+}

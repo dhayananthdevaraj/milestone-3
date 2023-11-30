@@ -1,0 +1,75 @@
+/* LoanForm.css */
+
+.loan-form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input, select {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  select {
+    cursor: pointer;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Media query for responsiveness */
+  @media (max-width: 480px) {
+    .loan-form-container {
+      max-width: 100%;
+    }
+  }
+  
+
+  .blur{    /* Your existing styles for the content here */
+    filter: blur(2px);
+    pointer-events: none;
+     /* Apply a blur filter to the content */
+  }
+  /* CSS for Delete Popup */
+  .success-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* backgroundcolor: #f2f2f2; Light gray background color */
+    /* border: 1px solid black; */
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    text-align: center;
+    z-index: 2; /* Above the overlay */
+  }
