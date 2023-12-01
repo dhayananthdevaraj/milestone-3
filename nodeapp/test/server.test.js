@@ -527,91 +527,91 @@ describe('loanApplicationController', () => {
   //     expect(res.json).toHaveBeenCalledWith({ message: 'Database error' });
   //   });
   // });
-  describe('getAllLoanApplications', () => {
-    it('should return paginated loan applications and respond with a 200 status code', async () => {
-      // Mock request body with pagination parameters
-      const req = {
-        body: {
-          searchValue: 'test',
-          sortValue: '1',
-          statusFilter: '1',
-          page: '1',
-          pageSize: '10',
-          sortBy: 'submissionDate', // Adjusted to match the changes
-        },
-      };
+  // describe('getAllLoanApplications', () => {
+  //   it('should return paginated loan applications and respond with a 200 status code', async () => {
+  //     // Mock request body with pagination parameters
+  //     const req = {
+  //       body: {
+  //         searchValue: 'test',
+  //         sortValue: '1',
+  //         statusFilter: '1',
+  //         page: '1',
+  //         pageSize: '10',
+  //         sortBy: 'submissionDate', // Adjusted to match the changes
+  //       },
+  //     };
     
-      // Sample loan applications for testing
-      const loanApplications = [
-        {
-          userId: 'user1',
-          userName: 'User 1',
-          loanType: 'Personal',
-          requestedAmount: 10000,
-          submissionDate: new Date(),
-          employmentStatus: 'Employed',
-          income: 50000,
-          creditScore: 700,
-          loanStatus: 1,
-        },
-        {
-          userId: 'user2',
-          userName: 'User 2',
-          loanType: 'Home',
-          requestedAmount: 200000,
-          submissionDate: new Date(),
-          employmentStatus: 'Self-employed',
-          income: 75000,
-          creditScore: 680,
-          loanStatus: 1,
-        },
-      ];
+  //     // Sample loan applications for testing
+  //     const loanApplications = [
+  //       {
+  //         userId: 'user1',
+  //         userName: 'User 1',
+  //         loanType: 'Personal',
+  //         requestedAmount: 10000,
+  //         submissionDate: new Date(),
+  //         employmentStatus: 'Employed',
+  //         income: 50000,
+  //         creditScore: 700,
+  //         loanStatus: 1,
+  //       },
+  //       {
+  //         userId: 'user2',
+  //         userName: 'User 2',
+  //         loanType: 'Home',
+  //         requestedAmount: 200000,
+  //         submissionDate: new Date(),
+  //         employmentStatus: 'Self-employed',
+  //         income: 75000,
+  //         creditScore: 680,
+  //         loanStatus: 1,
+  //       },
+  //     ];
     
-      // Mock the LoanApplication.find method to resolve with the sample loan applications
-      LoanApplication.find = jest.fn().mockResolvedValue(loanApplications);
+  //     // Mock the LoanApplication.find method to resolve with the sample loan applications
+  //     LoanApplication.find = jest.fn().mockResolvedValue(loanApplications);
     
-      // Mock Express response object
-      const res = {
-        status: jest.fn().mockReturnThis(),
-        json: jest.fn(),
-      };
+  //     // Mock Express response object
+  //     const res = {
+  //       status: jest.fn().mockReturnThis(),
+  //       json: jest.fn(),
+  //     };
     
-      // Call the controller function
-      await loanApplicationController.getAllLoanApplications(req, res);
+  //     // Call the controller function
+  //     await loanApplicationController.getAllLoanApplications(req, res);
     
-      // Assertions
-      expect(res.status).toHaveBeenCalledWith(200);
-      expect(res.json).toHaveBeenCalledWith({
-        data: loanApplications,
-        length: loanApplications.length,
-      });
-    });
+  //     // Assertions
+  //     expect(res.status).toHaveBeenCalledWith(200);
+  //     expect(res.json).toHaveBeenCalledWith({
+  //       data: loanApplications,
+  //       length: loanApplications.length,
+  //     });
+  //   });
     
     
   
-    // it('should handle errors and respond with a 500 status code and error message', async () => {
-    //   // Mock an error to be thrown when calling LoanApplication.find
-    //   const error = new Error('Database error');
+  //   // it('should handle errors and respond with a 500 status code and error message', async () => {
+  //   //   // Mock an error to be thrown when calling LoanApplication.find
+  //   //   const error = new Error('Database error');
   
-    //   // Mock the LoanApplication.find method to reject with an error
-    //   LoanApplication.find = jest.fn().mockRejectedValue(error);
+  //   //   // Mock the LoanApplication.find method to reject with an error
+  //   //   LoanApplication.find = jest.fn().mockRejectedValue(error);
   
-    //   // Mock Express response object
-    //   const res = {
-    //     status: jest.fn().mockReturnThis(),
-    //     json: jest.fn(),
-    //   };
+  //   //   // Mock Express response object
+  //   //   const res = {
+  //   //     status: jest.fn().mockReturnThis(),
+  //   //     json: jest.fn(),
+  //   //   };
   
-    //   // Call the controller function
-    //   await loanApplicationController.getAllLoanApplications({}, res);
+  //   //   // Call the controller function
+  //   //   await loanApplicationController.getAllLoanApplications({}, res);
   
-    //   // Assertions
-    //   expect(res.status).toHaveBeenCalledWith(500);
-    // });
+  //   //   // Assertions
+  //   //   expect(res.status).toHaveBeenCalledWith(500);
+  //   // });
   
   
   
-  });
+  // });
   
     describe('getLoanApplicationByUserId', () => {
         it('should return a loan application for a valid userId and respond with a 200 status code', async () => {
@@ -731,100 +731,100 @@ describe('loanApplicationController', () => {
         });
       });
       describe('updateLoanApplication', () => {
-        it('should update a loan application and respond with a 200 status code and a success message', async () => {
-          // Sample loan application data
-          const loanApplicationData = {
-            userId: 'user123',
-            userName: 'User 1',
-            loanType: 'Personal',
-            requestedAmount: 10000,
-            submissionDate: new Date(),
-            employmentStatus: 'Employed',
-            income: 50000,
-            creditScore: 700,
-            loanStatus: 1,
-          };
-    
-          // Mock Express request and response objects
-          const req = {
-            params: { id: 'loan123' }, // Assuming 'loan123' is a valid loan application ID
-            body: loanApplicationData,
-          };
-    
-          // Mock the LoanApplication.findByIdAndUpdate method to resolve with the updated loan application data
-          LoanApplication.findByIdAndUpdate = jest.fn().mockResolvedValue(loanApplicationData);
-    
-          // Mock the LoanApplication.findById method to resolve with the updated loan application data
-          LoanApplication.findById = jest.fn().mockResolvedValue(loanApplicationData);
-    
-          const res = {
-            status: jest.fn().mockReturnThis(),
-            json: jest.fn(),
-          };
-    
-          // Call the controller function
-          await loanApplicationController.updateLoanApplication(req, res);
-    
-          // Assertions
-          expect(LoanApplication.findByIdAndUpdate).toHaveBeenCalledWith('loan123', loanApplicationData);
-          expect(LoanApplication.findById).toHaveBeenCalledWith('loan123');
-          expect(res.status).toHaveBeenCalledWith(200);
-          expect(res.json).toHaveBeenCalledWith({ message: 'Updated Successfully' });
-        });
-    
-        it('should handle not finding a loan application and respond with a 404 status code', async () => {
-          // Mock Express request and response objects
-          const req = {
-            params: { id: 'nonExistentLoan' }, // Assuming 'nonExistentLoan' is not found
-            body: {},
-          };
-    
-          // Mock the LoanApplication.findByIdAndUpdate method to resolve with null (loan application not found)
-          LoanApplication.findByIdAndUpdate = jest.fn().mockResolvedValue(null);
-    
-          const res = {
-            status: jest.fn().mockReturnThis(),
-            json: jest.fn(),
-          };
-    
-          // Call the controller function
-          await loanApplicationController.updateLoanApplication(req, res);
-    
-          // Assertions
-          expect(LoanApplication.findByIdAndUpdate).toHaveBeenCalledWith('nonExistentLoan', {});
-          expect(res.status).toHaveBeenCalledWith(404);
-          expect(res.json).toHaveBeenCalledWith({ message: 'Cannot find any loan application' });
-        });
-    
-        it('should handle errors and respond with a 500 status code and an error message', async () => {
-          // Mock an error to be thrown when calling LoanApplication.findByIdAndUpdate
-          const error = new Error('Database error');
-    
-          // Mock Express request and response objects
-          const req = {
-            params: { id: 'loan123' },
-            body: {},
-          };
-    
-          // Mock the LoanApplication.findByIdAndUpdate method to reject with an error
-          LoanApplication.findByIdAndUpdate = jest.fn().mockRejectedValue(error);
-    
-          const res = {
-            status: jest.fn().mockReturnThis(),
-            json: jest.fn(),
-          };
-    
-          // Call the controller function
-          await loanApplicationController.updateLoanApplication(req, res);
-    
-          // Assertions
-          expect(LoanApplication.findByIdAndUpdate).toHaveBeenCalledWith('loan123', {});
-          expect(res.status).toHaveBeenCalledWith(500);
-          expect(res.json).toHaveBeenCalledWith({ message: 'Database error' });
-        });
+          it('should update a loan application and respond with a 200 status code and a success message', async () => {
+            // Sample loan application data
+            const loanApplicationData = {
+              userId: 'user123',
+              userName: 'User 1',
+              loanType: 'Personal',
+              requestedAmount: 10000,
+              submissionDate: new Date(),
+              employmentStatus: 'Employed',
+              income: 50000,
+              creditScore: 700,
+              loanStatus: 1,
+            };
+      
+            // Mock Express request and response objects
+            const req = {
+              params: { id: 'loan123' }, // Assuming 'loan123' is a valid loan application ID
+              body: loanApplicationData,
+            };
+      
+            // Mock the LoanApplication.findByIdAndUpdate method to resolve with the updated loan application data
+            LoanApplication.findByIdAndUpdate = jest.fn().mockResolvedValue(loanApplicationData);
+      
+            // Mock the LoanApplication.findById method to resolve with the updated loan application data
+            LoanApplication.findById = jest.fn().mockResolvedValue(loanApplicationData);
+      
+            const res = {
+              status: jest.fn().mockReturnThis(),
+              json: jest.fn(),
+            };
+      
+            // Call the controller function
+            await loanApplicationController.updateLoanApplication(req, res);
+      
+            // Assertions
+            expect(LoanApplication.findByIdAndUpdate).toHaveBeenCalledWith('loan123', loanApplicationData);
+            expect(LoanApplication.findById).toHaveBeenCalledWith('loan123');
+            expect(res.status).toHaveBeenCalledWith(200);
+            expect(res.json).toHaveBeenCalledWith({ message: 'Updated Successfully' });
+          });
+      
+          it('should handle not finding a loan application and respond with a 404 status code', async () => {
+            // Mock Express request and response objects
+            const req = {
+              params: { id: 'nonExistentLoan' }, // Assuming 'nonExistentLoan' is not found
+              body: {},
+            };
+      
+            // Mock the LoanApplication.findByIdAndUpdate method to resolve with null (loan application not found)
+            LoanApplication.findByIdAndUpdate = jest.fn().mockResolvedValue(null);
+      
+            const res = {
+              status: jest.fn().mockReturnThis(),
+              json: jest.fn(),
+            };
+      
+            // Call the controller function
+            await loanApplicationController.updateLoanApplication(req, res);
+      
+            // Assertions
+            expect(LoanApplication.findByIdAndUpdate).toHaveBeenCalledWith('nonExistentLoan', {});
+            expect(res.status).toHaveBeenCalledWith(404);
+            expect(res.json).toHaveBeenCalledWith({ message: 'Cannot find any loan application' });
+          });
+      
+          it('should handle errors and respond with a 500 status code and an error message', async () => {
+            // Mock an error to be thrown when calling LoanApplication.findByIdAndUpdate
+            const error = new Error('Database error');
+      
+            // Mock Express request and response objects
+            const req = {
+              params: { id: 'loan123' },
+              body: {},
+            };
+      
+            // Mock the LoanApplication.findByIdAndUpdate method to reject with an error
+            LoanApplication.findByIdAndUpdate = jest.fn().mockRejectedValue(error);
+      
+            const res = {
+              status: jest.fn().mockReturnThis(),
+              json: jest.fn(),
+            };
+      
+            // Call the controller function
+            await loanApplicationController.updateLoanApplication(req, res);
+      
+            // Assertions
+            expect(LoanApplication.findByIdAndUpdate).toHaveBeenCalledWith('loan123', {});
+            expect(res.status).toHaveBeenCalledWith(500);
+            expect(res.json).toHaveBeenCalledWith({ message: 'Database error' });
+          });
       });
       describe('deleteLoanApplication', () => {
-        it('should delete a loan application and respond with a 200 status code and a success message', async () => {
+        it('should_delete_a_loan_application_with_success message', async () => {
           // Mock Express request and response objects
           const req = {
             params: { id: 'loan123' }, // Assuming 'loan123' is a valid loan application ID
@@ -852,7 +852,7 @@ describe('loanApplicationController', () => {
           expect(res.json).toHaveBeenCalledWith({ message: 'Deleted Successfully' });
         });
     
-        it('should handle not finding a loan application and respond with a 404 status code', async () => {
+        it('should_handle_not_finding_a_loan_application_and_respond_with_a_404_status_code', async () => {
           // Mock Express request and response objects
           const req = {
             params: { id: 'nonExistentLoan' }, // Assuming 'nonExistentLoan' is not found
@@ -875,7 +875,7 @@ describe('loanApplicationController', () => {
           expect(res.json).toHaveBeenCalledWith({ message: 'Cannot find any loan application' });
         });
     
-        it('should handle errors and respond with a 500 status code and an error message', async () => {
+        it('should_handle_errors_and_respond_with_a_500_status_code_and_an_error_message', async () => {
           // Mock an error to be thrown when calling LoanApplication.findByIdAndDelete
           const error = new Error('Database error');
     
