@@ -8,7 +8,7 @@ const loanApplicationController = require('../controllers/loanApplicationControl
 
  describe('userController', () => {
   describe('getUserByUsernameAndPassword', () => {
-    it('should_return_user_when_a_user_with_valid_credentials_is_found_login', async () => {
+   test('should_return_user_when_a_user_with_valid_credentials_is_found_login', async () => {
       const req = {
         body: { username: 'validUser', password: 'validPassword' },
       };
@@ -34,7 +34,7 @@ const loanApplicationController = require('../controllers/loanApplicationControl
       expect(res.status).toHaveBeenCalledWith(200);
       expect(res.json).toHaveBeenCalledWith(expectedUser); // Verify the response matches the expected user object
     });
-    it('should_return_an_error_message_when_a_user_with_invalid_credentials_is_not_found_login', async () => {
+   test('should_return_an_error_message_when_a_user_with_invalid_credentials_is_not_found_login', async () => {
       const req = {
         body: { username: 'invalidUser', password: 'invalidPassword' },
       };
@@ -55,7 +55,7 @@ const loanApplicationController = require('../controllers/loanApplicationControl
       expect(res.status).toHaveBeenCalledWith(404);
       expect(res.json).toHaveBeenCalledWith({ message: 'User not found' });
     });
-    it('should_return_a_500_status_and_an_error_message_on_database_error_login', async () => {
+   test('should_return_a_500_status_and_an_error_message_on_database_error_login', async () => {
       const req = {
         body: { username: 'validUser', password: 'validPassword' },
       };
@@ -79,7 +79,7 @@ const loanApplicationController = require('../controllers/loanApplicationControl
     });
   });
   describe('addUser', () => {
-    it('should_add_a_user_and_respond_with_a_200_status_code_and_success_message_adduser', async () => {
+   test('should_add_a_user_and_respond_with_a_200_status_code_and_success_message_adduser', async () => {
       // Test case for successful user addition
       const req = {
         body: { username: 'newUser', password: 'newPassword', role: 'admin' },
@@ -102,7 +102,7 @@ const loanApplicationController = require('../controllers/loanApplicationControl
       expect(res.status).toHaveBeenCalledWith(200); // Verify 200 status for success
       expect(res.json).toHaveBeenCalledWith({ message: 'Success' }); // Verify the success message
     });
-   it('should_handle_errors_and_respond_with_a_500_status_code_and_error_message_adduser', async () => {
+  test('should_handle_errors_and_respond_with_a_500_status_code_and_error_message_adduser', async () => {
       // Test case for error handling
       const req = {
         body: { username: 'newUser' },
@@ -127,7 +127,7 @@ const loanApplicationController = require('../controllers/loanApplicationControl
 
    describe('loanController', () => {
   describe('getAllLoans', () => {
-    it('should_return_all_loans_and_respond_with_a_200_status_code_getallloans', async () => {
+   test('should_return_all_loans_and_respond_with_a_200_status_code_getallloans', async () => {
       const loans = [
         { _id: 'loan1', loanType: 'Type 1', description: 'Description 1', interestRate: 5, maximumAmount: 10000 },
         { _id: 'loan2', loanType: 'Type 2', description: 'Description 2', interestRate: 4, maximumAmount: 15000 },
@@ -146,7 +146,7 @@ const loanApplicationController = require('../controllers/loanApplicationControl
       expect(res.status).toHaveBeenCalledWith(200);
       expect(res.json).toHaveBeenCalledWith(loans);
     });
-    it('should_handle_errors_and_respond_with_a_500_status_code_and_error_message_getallloans', async () => {
+   test('should_handle_errors_and_respond_with_a_500_status_code_and_error_message_getallloans', async () => {
       const error = new Error('Database error');
       const req = {};
       const res = {
@@ -164,7 +164,7 @@ const loanApplicationController = require('../controllers/loanApplicationControl
     });
   });
   describe('getLoanById', () => {
-    it('should_return_a_loan_by_id_and_respond_with_a_200_status_code', async () => {
+   test('should_return_a_loan_by_id_and_respond_with_a_200_status_code', async () => {
       const loan = {
         _id: 'loan1',
         loanType: 'Type 1',
@@ -186,7 +186,7 @@ const loanApplicationController = require('../controllers/loanApplicationControl
       expect(res.status).toHaveBeenCalledWith(200);
       expect(res.json).toHaveBeenCalledWith(loan);
     });
-    it('should_handle_errors_and_respond_with_a_500_status_code_and_error_message_getloanbyid', async () => {
+   test('should_handle_errors_and_respond_with_a_500_status_code_and_error_message_getloanbyid', async () => {
       const error = new Error('Database error');
       const req = { params: { id: 'loan1' } };
       const res = {
@@ -203,7 +203,7 @@ const loanApplicationController = require('../controllers/loanApplicationControl
       expect(res.json).toHaveBeenCalledWith({ message: 'Database error' });
     });
 
-    it('should_handle_not_finding_a_loan_and_respond_with_a_404_status_code_getloanbyid', async () => {
+   test('should_handle_not_finding_a_loan_and_respond_with_a_404_status_code_getloanbyid', async () => {
       const req = { params: { id: 'nonExistentLoan' } };
       const res = {
         status: jest.fn().mockReturnThis(),
@@ -220,7 +220,7 @@ const loanApplicationController = require('../controllers/loanApplicationControl
     });
   });
   describe('addLoan', () => {
-    it('should_add_a_loan_and_respond_with_a_200_status_code_and_a_success_message_addloan', async () => {
+   test('should_add_a_loan_and_respond_with_a_200_status_code_and_a_success_message_addloan', async () => {
       const req = {
         body: {
           loanType: 'New Loan Type',
@@ -244,7 +244,7 @@ const loanApplicationController = require('../controllers/loanApplicationControl
       expect(res.json).toHaveBeenCalledWith({ message: 'Loan added Successfully' });
     });
 
-    it('should_handle_errors_and_respond_with_a_500_status_code_and_an_error_message_addloan', async () => {
+   test('should_handle_errors_and_respond_with_a_500_status_code_and_an_error_message_addloan', async () => {
       const error = new Error('Database error');
       const req = {
         body: {
@@ -271,7 +271,7 @@ const loanApplicationController = require('../controllers/loanApplicationControl
   });
 
   describe('updateLoan', () => {
-    it('should_update_a_loan_and_respond_with_a_200_status_code_and_a_success_message_updateloan', async () => {
+   test('should_update_a_loan_and_respond_with_a_200_status_code_and_a_success_message_updateloan', async () => {
       const loanId = 'loan1';
       const req = {
         params: { id: loanId },
@@ -299,7 +299,7 @@ const loanApplicationController = require('../controllers/loanApplicationControl
       expect(res.status).toHaveBeenCalledWith(200);
       expect(res.json).toHaveBeenCalledWith({ message: 'Loan updated successfully' });
     });
-    it('should_handle_not_finding_a_loan_and_respond_with_a_404_status_code_updateloan', async () => {
+   test('should_handle_not_finding_a_loan_and_respond_with_a_404_status_code_updateloan', async () => {
       const loanId = 'nonExistentLoan';
       const req = {
         params: { id: loanId },
@@ -326,7 +326,7 @@ const loanApplicationController = require('../controllers/loanApplicationControl
       expect(res.json).toHaveBeenCalledWith({ message: `Cannot find any loan` });
     });
 
-    it('should_handle_errors_and_respond_with_a_500_status_code_and_an_error_message_updateloan', async () => {
+   test('should_handle_errors_and_respond_with_a_500_status_code_and_an_error_message_updateloan', async () => {
       const loanId = 'loan1';
       const error = new Error('Database error');
       const req = {
@@ -358,7 +358,7 @@ const loanApplicationController = require('../controllers/loanApplicationControl
  
  
    describe('deleteLoan', () => {
-    it('should_delete_a_loan_and_respond_with_a_200_status_code_and_a_success_message_deleteloan', async () => {
+   test('should_delete_a_loan_and_respond_with_a_200_status_code_and_a_success_message_deleteloan', async () => {
       const loanId = 'loan1';
       const req = {
         params: { id: loanId },
@@ -379,7 +379,7 @@ const loanApplicationController = require('../controllers/loanApplicationControl
       expect(res.json).toHaveBeenCalledWith({ message: 'Loan deleted successfully' });
     });
 
-    it('should_handle_not_finding_a_loan_and_respond_with_a_404_status_code_and_an_appropriate_message_deleteloan', async () => {
+   test('should_handle_not_finding_a_loan_and_respond_with_a_404_status_code_and_an_appropriate_message_deleteloan', async () => {
       const loanId = 'nonExistentLoan';
       const req = {
         params: { id: loanId },
@@ -400,7 +400,7 @@ const loanApplicationController = require('../controllers/loanApplicationControl
       expect(res.json).toHaveBeenCalledWith({ message: 'Cannot find any loan' });
     });
 
-    it('should_handle_errors_and_respond_with_a_500_status_code_and_an_error_message_deleteloan', async () => {
+   test('should_handle_errors_and_respond_with_a_500_status_code_and_an_error_message_deleteloan', async () => {
       const loanId = 'loan1';
       const error = new Error('Database error');
       const req = {
@@ -428,186 +428,9 @@ const loanApplicationController = require('../controllers/loanApplicationControl
 
 
 describe('loanApplicationController', () => {
-  // describe('getAllLoanApplications', () => {
-  //   it('should return paginated loan applications and respond with a 200 status code', async () => {
-  //     // Mock request body with pagination parameters
-  //     const req = {
-  //       data: {
-  //         searchValue: 'test',
-  //         sortValue: '1',
-  //         statusFilter: '1',
-  //         page: '1',
-  //         pageSize: '10',
-  //       },
-  //     };
-  
-  //     // Create sample loan applications for testing
-  //     const loanApplications = [
-  //       {
-  //         userId: 'user1',
-  //         userName: 'User 1',
-  //         loanType: 'Personal',
-  //         requestedAmount: 10000,
-  //         submissionDate: new Date(),
-  //         employmentStatus: 'Employed',
-  //         income: 50000,
-  //         creditScore: 700,
-  //         loanStatus: 1,
-  //       },
-  //       {
-  //         userId: 'user2',
-  //         userName: 'User 2',
-  //         loanType: 'Home',
-  //         requestedAmount: 200000,
-  //         submissionDate: new Date(),
-  //         employmentStatus: 'Self-employed',
-  //         income: 75000,
-  //         creditScore: 680,
-  //         loanStatus: 1,
-  //       },
-  //     ];
-  
-  //     // Mock the LoanApplication.find method to resolve with the sample loan applications
-  //     LoanApplication.find = jest.fn().mockResolvedValue(loanApplications);
-  
-  //     // Mock Express response object
-  //     const res = {
-  //       status: jest.fn().mockReturnThis(),
-  //       json: jest.fn(),
-  //     };
-  
-  //     // Call the controller function
-  //     await loanApplicationController.getAllLoanApplications(req, res);
-  
-  //     // Assertions
-  //     expect(LoanApplication.find).toHaveBeenCalledWith({
-  //       $and: [
-  //         {
-  //           $or: [
-  //             { userName: expect.any(RegExp) },
-  //             { loanType: expect.any(RegExp) },
-  //           ],
-  //         },
-  //         { loanStatus: '1' },
-  //       ],
-  //     });
-  //     expect(res.status).toHaveBeenCalledWith(200);
-  //     expect(res.json).toHaveBeenCalledWith({
-  //       data: loanApplications,
-  //       length: loanApplications.length,
-  //     });
-  //   });
-  
-  //   it('should handle errors and respond with a 500 status code and error message', async () => {
-  //     // Mock an error to be thrown when calling LoanApplication.find
-  //     const error = new Error('Database error');
-  
-  //     // Mock the LoanApplication.find method to reject with an error
-  //     LoanApplication.find = jest.fn().mockRejectedValue(error);
-  
-  //     // Mock Express response object
-  //     const res = {
-  //       status: jest.fn().mockReturnThis(),
-  //       json: jest.fn(),
-  //     };
-  
-  //     // Call the controller function
-  //     await loanApplicationController.getAllLoanApplications({}, res);
-  
-  //     // Assertions
-  //     expect(LoanApplication.find).toHaveBeenCalledWith({});
-  //     expect(res.status).toHaveBeenCalledWith(500);
-  //     expect(res.json).toHaveBeenCalledWith({ message: 'Database error' });
-  //   });
-  // });
-  // describe('getAllLoanApplications', () => {
-  //   it('should return paginated loan applications and respond with a 200 status code', async () => {
-  //     // Mock request body with pagination parameters
-  //     const req = {
-  //       body: {
-  //         searchValue: 'test',
-  //         sortValue: '1',
-  //         statusFilter: '1',
-  //         page: '1',
-  //         pageSize: '10',
-  //         sortBy: 'submissionDate', // Adjusted to match the changes
-  //       },
-  //     };
-    
-  //     // Sample loan applications for testing
-  //     const loanApplications = [
-  //       {
-  //         userId: 'user1',
-  //         userName: 'User 1',
-  //         loanType: 'Personal',
-  //         requestedAmount: 10000,
-  //         submissionDate: new Date(),
-  //         employmentStatus: 'Employed',
-  //         income: 50000,
-  //         creditScore: 700,
-  //         loanStatus: 1,
-  //       },
-  //       {
-  //         userId: 'user2',
-  //         userName: 'User 2',
-  //         loanType: 'Home',
-  //         requestedAmount: 200000,
-  //         submissionDate: new Date(),
-  //         employmentStatus: 'Self-employed',
-  //         income: 75000,
-  //         creditScore: 680,
-  //         loanStatus: 1,
-  //       },
-  //     ];
-    
-  //     // Mock the LoanApplication.find method to resolve with the sample loan applications
-  //     LoanApplication.find = jest.fn().mockResolvedValue(loanApplications);
-    
-  //     // Mock Express response object
-  //     const res = {
-  //       status: jest.fn().mockReturnThis(),
-  //       json: jest.fn(),
-  //     };
-    
-  //     // Call the controller function
-  //     await loanApplicationController.getAllLoanApplications(req, res);
-    
-  //     // Assertions
-  //     expect(res.status).toHaveBeenCalledWith(200);
-  //     expect(res.json).toHaveBeenCalledWith({
-  //       data: loanApplications,
-  //       length: loanApplications.length,
-  //     });
-  //   });
-    
-    
-  
-  //   // it('should handle errors and respond with a 500 status code and error message', async () => {
-  //   //   // Mock an error to be thrown when calling LoanApplication.find
-  //   //   const error = new Error('Database error');
-  
-  //   //   // Mock the LoanApplication.find method to reject with an error
-  //   //   LoanApplication.find = jest.fn().mockRejectedValue(error);
-  
-  //   //   // Mock Express response object
-  //   //   const res = {
-  //   //     status: jest.fn().mockReturnThis(),
-  //   //     json: jest.fn(),
-  //   //   };
-  
-  //   //   // Call the controller function
-  //   //   await loanApplicationController.getAllLoanApplications({}, res);
-  
-  //   //   // Assertions
-  //   //   expect(res.status).toHaveBeenCalledWith(500);
-  //   // });
-  
-  
-  
-  // });
-  
+
     describe('getLoanApplicationByUserId', () => {
-        it('should_return_a_loan_application_for_a_valid_userid_and_respond_with_a_200_status_code_getloanapplicationbyuserid', async () => {
+       test('should_return_a_loan_application_for_a_valid_userid_and_respond_with_a_200_status_code_getloanapplicationbyuserid', async () => {
           // Sample userId and corresponding loan application
           const userId = 'user123';
           const loanApplicationData = {
@@ -641,7 +464,7 @@ describe('loanApplicationController', () => {
           expect(res.json).toHaveBeenCalledWith([loanApplicationData]);
         });
 
-        it('should_handle_errors_and_respond_with_a_500_status_code_and_an_error_message_getloanapplicationbyuserid', async () => {
+       test('should_handle_errors_and_respond_with_a_500_status_code_and_an_error_message_getloanapplicationbyuserid', async () => {
           // Mock an error to be thrown when calling LoanApplication.find
           const error = new Error('Database error');
     
@@ -665,7 +488,7 @@ describe('loanApplicationController', () => {
         });
       });
       describe('addLoanApplication', () => {
-        it('should_add_a_loan_application_and_respond_with_a_200_status_code_and_a_success_message_addloanapplication', async () => {
+       test('should_add_a_loan_application_and_respond_with_a_200_status_code_and_a_success_message_addloanapplication', async () => {
           // Sample loan application data
           const loanApplicationData = {
             userId: 'user123',
@@ -698,7 +521,7 @@ describe('loanApplicationController', () => {
           expect(res.json).toHaveBeenCalledWith({ message: "Added Successfully" });
         });
     
-        it('addloanapplication_should_handle_errors_and_respond_with_a_500_status_code_and_an_error_message_addloanapplication', async () => {
+       test('addloanapplication_should_handle_errors_and_respond_with_a_500_status_code_and_an_error_message_addloanapplication', async () => {
           // Mock an error to be thrown when calling LoanApplication.create
           const error = new Error('Database error');
     
@@ -722,7 +545,7 @@ describe('loanApplicationController', () => {
         });
       });
       describe('updateLoanApplication', () => {
-          it('should_update_a_loan_application_and_respond_with_a_200_status_code_and_a_success_message_updateloanapplication', async () => {
+         test('should_update_a_loan_application_and_respond_with_a_200_status_code_and_a_success_message_updateloanapplication', async () => {
             // Sample loan application data
             const loanApplicationData = {
               userId: 'user123',
@@ -763,7 +586,7 @@ describe('loanApplicationController', () => {
             expect(res.json).toHaveBeenCalledWith({ message: 'Updated Successfully' });
           });
       
-          it('should_handle_not_finding_a_loan_application_and_respond_with_a_404_status_code_updateloanapplication', async () => {
+         test('should_handle_not_finding_a_loan_application_and_respond_with_a_404_status_code_updateloanapplication', async () => {
             // Mock Express request and response objects
             const req = {
               params: { id: 'nonExistentLoan' }, // Assuming 'nonExistentLoan' is not found
@@ -787,7 +610,7 @@ describe('loanApplicationController', () => {
             expect(res.json).toHaveBeenCalledWith({ message: 'Cannot find any loan application' });
           });
       
-          it('should_handle_errors_and_respond_with_a_500_status_code_and_an_error_message_updateloanapplication', async () => {
+         test('should_handle_errors_and_respond_with_a_500_status_code_and_an_error_message_updateloanapplication', async () => {
             // Mock an error to be thrown when calling LoanApplication.findByIdAndUpdate
             const error = new Error('Database error');
       
@@ -815,7 +638,7 @@ describe('loanApplicationController', () => {
           });
       });
       describe('deleteLoanApplication', () => {
-        it('should_delete_a_loan_application_with_success_message_deleteloanapplication', async () => {
+       test('should_delete_a_loan_application_with_success_message_deleteloanapplication', async () => {
           // Mock Express request and response objects
           const req = {
             params: { id: 'loan123' }, // Assuming 'loan123' is a valid loan application ID
@@ -843,7 +666,7 @@ describe('loanApplicationController', () => {
           expect(res.json).toHaveBeenCalledWith({ message: 'Deleted Successfully' });
         });
     
-        it('should_handle_not_finding_a_loan_application_and_respond_with_a_404_status_code_deleteloanapplication', async () => {
+       test('should_handle_not_finding_a_loan_application_and_respond_with_a_404_status_code_deleteloanapplication', async () => {
           // Mock Express request and response objects
           const req = {
             params: { id: 'nonExistentLoan' }, // Assuming 'nonExistentLoan' is not found
@@ -866,7 +689,7 @@ describe('loanApplicationController', () => {
           expect(res.json).toHaveBeenCalledWith({ message: 'Cannot find any loan application' });
         });
     
-        it('should_handle_errors_and_respond_with_a_500_status_code_and_an_error_message_deleteloanapplication', async () => {
+       test('should_handle_errors_and_respond_with_a_500_status_code_and_an_error_message_deleteloanapplication', async () => {
           // Mock an error to be thrown when calling LoanApplication.findByIdAndDelete
           const error = new Error('Database error');
     

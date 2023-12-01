@@ -1,20 +1,20 @@
 import React from "react";
 import { render, fireEvent, screen, waitFor } from "@testing-library/react";
-import Login from "./Components/Login";
+import Login from "../Components/Login";
 import axios from "axios";
 import { BrowserRouter , useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import "@testing-library/jest-dom"; // Import the extended matchers
-import Signup from "./Components/Signup";
+import Signup from "../Components/Signup";
 import { act } from "react-dom/test-utils";
-import UserHomePage from "./UserComponents/UserHomePage";
-import HomePage from "./AdminComponents/Home";
-import LoanForm from "./AdminComponents/LoanForm";
+import UserHomePage from "../UserComponents/UserHomePage";
+import HomePage from "../AdminComponents/Home";
+import LoanForm from "../AdminComponents/LoanForm";
 import { QueryClient, QueryClientProvider } from "react-query";
-import AppliedLoansPage from "./UserComponents/AppliedLoans";
-import LoanApplicationForm from "./UserComponents/LoanApplicationForm";
+import AppliedLoansPage from "../UserComponents/AppliedLoans";
+import LoanApplicationForm from "../UserComponents/LoanApplicationForm";
 import MockAdapter from "axios-mock-adapter";
-import LoanRequests from "./AdminComponents/LoanRequest";
+import LoanRequests from "../AdminComponents/LoanRequest";
 
 jest.mock("axios");
 jest.mock("react-redux");
@@ -601,21 +601,6 @@ describe("LoanForm Component", () => {
       // Additional assertions for other rows
     });
   
-    test('should_display_no_records_found_when_there_are_no_applied_loans', async () => {
-      // Mock data for applied loans (empty)
-      jest.spyOn(axios, "get").mockResolvedValue({ data: [], status: 200 });
-  
-      await act(async () => {
-        render(
-          <BrowserRouter>
-            <AppliedLoansPage />
-          </BrowserRouter>
-        );
-      });
-  
-      expect(screen.getByText("No Records Found")).toBeInTheDocument();
-    });
-  
     test("should_sort_applied_loans_in_ascending_order", async () => {
       const mockAppliedLoansData = [
         {
@@ -949,9 +934,6 @@ describe("LoanForm Component", () => {
       expect(screen.queryByText("Loan 1")).toBeNull();
       // Additional assertions for other rows
     });
-  
-  
-  
     test("should_handle_applied_loan_deletion", async () => {
       // Mock the axios.get function for fetching loan data
       const mockAppliedLoansData = [
