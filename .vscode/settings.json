@@ -9,3 +9,4 @@
 {"files.exclude": {"**/.github": true, "**/.gitignore": true, "**/.vscode": true, "**/.theia": true, "**/done": true,"**/.done": true, "**/*sonar-project.properties": true}}
 {"files.exclude": {"**/.github": true, "**/.gitignore": true, "**/.vscode": true, "**/.theia": true, "**/done": true,"**/.done": true, "**/*sonar-project.properties": true}}
 {"files.exclude": {"**/.github": true, "**/.gitignore": true, "**/.vscode": true, "**/.theia": true, "**/done": true,"**/.done": true, "**/*sonar-project.properties": true}}
+{"files.exclude": {"**/.github": true, "**/.gitignore": true, "**/.vscode": true, "**/.theia": true, "**/done": true,"**/.done": true, "**/*sonar-project.properties": true}}
