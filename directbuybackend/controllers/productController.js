@@ -42,18 +42,21 @@ const getProductByUserId = async (req, res) => {
     const search = req.body.searchValue || ''; // Default to empty string if not provided
     const searchRegex = new RegExp(search, 'i'); // Case-insensitive search regex
 
-    const { userId } = req.body.userId;
-    console.log("came in getbyid");
-    const product = await Product.findById({userId}).find({ product: searchRegex })
-    .sort({ price: parseInt(sortValue) });;
-    if (!product) {
+    const { userId } = req.body;
+    console.log("came in getbyuserid");
+    
+    const product = await Product.find({ userId, product: searchRegex }).sort({ price: parseInt(sortValue) });
+
+    if (product.length === 0) {
       return res.status(404).json({ message: `Products not found for the provided userId` });
     }
+
     res.status(200).json(product);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
+
 
 const addProduct = async (req, res) => {
   try {
