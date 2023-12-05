@@ -1,12 +1,11 @@
 const express = require("express");
-const loanApplicationController = require("../controllers/loanApplicationController");
+const productController = require("../controllers/productController");
 const router = express.Router();
 
-router.post("/getAllLoanApplications", loanApplicationController.getAllLoanApplications);
-router.get("/getLoanApplicationById/:id", loanApplicationController.getLoanApplicationById);
-router.get("/getLoanApplicationByUserId/:userId", loanApplicationController.getLoanApplicationByUserId);
-router.post("/addLoanApplication", loanApplicationController.addLoanApplication);
-router.put("/updateLoanApplication/:id", loanApplicationController.updateLoanApplication);
-router.delete("/deleteLoanApplication/:id", loanApplicationController.deleteLoanApplication);
+router.get("/getAllProducts", productController.getAllProducts);
+router.get("/getProductById/:id", productController.getProductById);
+router.post("/addProduct", productController.addProduct);
+router.put("/updateProduct/:id", productController.updateProduct);
+router.delete("/deleteProduct/:id", productController.deleteProduct);
 
 module.exports = router;

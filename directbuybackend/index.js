@@ -2,8 +2,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 // const bookRoutes = require("./routers/bookRouter");
 const loanApplicationRouter = require("./routers/loanApplicationRouter");
-const loanRouter = require("./routers/loanRouter");
 const userRouter = require("./routers/userRouter");
+const productRouter = require("./routers/productRouter");
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -31,6 +31,5 @@ mongoose
     console.log(error);
   });
   app.use("/user", userRouter);
-  app.use("/loan", loanRouter);
-  app.use("/loanApplication", loanApplicationRouter);
+  app.use("/product", productRouter);
 
