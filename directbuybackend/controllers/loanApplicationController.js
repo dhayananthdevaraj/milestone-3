@@ -47,9 +47,9 @@ const getAllLoanApplications = async (req, res) => {
 const getLoanApplicationByUserId = async (req, res) => {
     try {
       const { userId } = req.params; // Assuming userId is provided as a parameter
-  console.log("userId",userId)
+      console.log("userId",userId)
       const loanApplication = await LoanApplication.find({ userId }); // Find by userId
-  console.log("loanApplication",loanApplication)
+          console.log("loanApplication",loanApplication)
       if (loanApplication) {
         res.status(200).json(loanApplication);
       } else {
