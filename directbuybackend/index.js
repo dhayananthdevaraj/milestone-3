@@ -1,7 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 // const bookRoutes = require("./routers/bookRouter");
-const loanApplicationRouter = require("./routers/loanApplicationRouter");
 const userRouter = require("./routers/userRouter");
 const productRouter = require("./routers/productRouter");
 const app = express();
