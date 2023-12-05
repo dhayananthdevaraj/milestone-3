@@ -8,16 +8,17 @@ const getUserByUsernameAndPassword = async (req, res) => {
     const { email, password } = req.body;
     console.log(" req.body", req.body);
     // Find a user with the given username and password
-    const user = await User.findOne({ email, password });
+    const user = await User.findOne({ email, password })
+    if (!user) {
+      return res.status(200).json({ message: 'Invalid Credentials' });
+    };
     const token = generateToken(user._id)
     console.log("token",token);
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
-    }
+    
 
     res.status(200).json({"userInformation":user,"token":token});
   } catch (error) {
-
+console.log("error",error);
     res.status(500).json({ message: error.message });
   }
 };
