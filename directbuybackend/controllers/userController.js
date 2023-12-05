@@ -4,10 +4,10 @@ const User = require('../models/userModel');
 
 const getUserByUsernameAndPassword = async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
      console.log(" req.body", req.body);
     // Find a user with the given username and password
-    const user = await User.findOne({ username, password });
+    const user = await User.findOne({ email, password });
 
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
