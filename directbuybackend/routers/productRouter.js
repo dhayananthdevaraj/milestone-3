@@ -4,7 +4,7 @@ const { validateToken } = require("../authUtils");
 const router = express.Router();
 
 router.post("/getAllProducts", validateToken,productController.getAllProducts);
-router.post("/getLoanApplicationById", productController.getProductByUserId);
+router.post("/getProductByUserId",validateToken, productController.getProductByUserId);
 router.get("/getProductById/:id", productController.getProductById);
 router.post("/addProduct", productController.addProduct);
 router.put("/updateProduct/:id", productController.updateProduct);
